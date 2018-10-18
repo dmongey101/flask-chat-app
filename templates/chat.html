@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Chat</h2>
+    {% for m in messages %}
+    <p class="message"><em>{{ m.author }}</em>: {{ m.text }}</p>    
+    {% endfor %}
+
+    <hr>
+    
+    <form action="/chat/{{ username }}/add" method="POST">
+        <input type="text" name="msg" placeholder="What's happening?"/>
+        <input type="submit" value="Send"/>
+    </form>
+{% endblock content %}
